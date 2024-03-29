@@ -7,6 +7,7 @@ from datetime import datetime
 if __name__ == '__main__':
     print("start")
     token, image = get_captcha()
+    # TODO 驗證input data 格式
     captcha = input("請輸入captcha：")
     invoiceNumber = input("請輸入發票：")
     randomNumber = input("請輸入隨機碼：")
