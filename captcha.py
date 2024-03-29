@@ -27,7 +27,6 @@ def get_captcha():
     image_data = base64.b64decode(res['image'])
     image = Image.open(BytesIO(image_data))
     image.show()
-    print(response.text)
     return res['token'], res['image']
 
 

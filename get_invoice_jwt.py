@@ -35,5 +35,8 @@ def get_invoice_jwt(token, invoiceNumber, randomNumber, invoiceDate, captcha):
         headers=headers,
         json=json_data,
     )
-    print(response.text)
-    return response.text
+    try:
+        json.loads(response.text)
+        return False, response.text
+    except Exception as e:
+        return True, response.text

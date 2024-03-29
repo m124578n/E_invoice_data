@@ -12,9 +12,11 @@ if __name__ == '__main__':
     randomNumber = input("請輸入隨機碼：")
     invoiceDate = input("請輸入日期 e.g. 2024-01-01：")
     invoiceDate += datetime.utcnow().strftime("T%H:%M:%S") + '.000Z'
-    print(invoiceDate)
-    jwt_token = get_invoice_jwt(token, invoiceNumber, randomNumber, invoiceDate, captcha)
-    response = get_invoice_data(jwt_token)
-    print(response)
+    OK, result = get_invoice_jwt(token, invoiceNumber, randomNumber, invoiceDate, captcha)
+    if OK:
+        response = get_invoice_data(result)
+        print(response)
+    else:
+        print(result)
 
 
